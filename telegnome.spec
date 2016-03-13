@@ -1,12 +1,12 @@
 Summary:	TeleGNOME - GNOME application to display teletext
 Summary(pl.UTF-8):	TeleGNOME - aplikacja GNOME do wyświetlania teletekstu
 Name:		telegnome
-Version:	0.2.1
+Version:	0.3.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/telegnome/0.2/%{name}-%{version}.tar.xz
-# Source0-md5:	ead2f4134f88fb19289a6336a7a6cf5c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/telegnome/0.3/%{name}-%{version}.tar.xz
+# Source0-md5:	4bc59751ff8e83b096ba53d584ee5efb
 URL:		http://telegnome.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -25,13 +25,16 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	vala
 BuildRequires:	xz
 Requires(post,postun):	glib2 >= 1:2.44.0
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	scrollkeeper
 Requires:	cairo >= 1.10
 Requires:	gdk-pixbuf2 >= 2.26
 Requires:	glib2 >= 1:2.44.0
 Requires:	gtk+3 >= 3.8
+Requires:	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,15 +71,19 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %glib_compile_schemas
 %scrollkeeper_update_post
+%update_icon_cache hicolor
 
 %postun
 %glib_compile_schemas
 %scrollkeeper_update_postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog* MAINTAINERS NEWS README TODO
+%doc AUTHORS ChangeLog* MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/telegnome
+%{_datadir}/appdata/telegnome.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.telegnome.gschema.xml
 %{_desktopdir}/telegnome.desktop
+%{_iconsdir}/hicolor/*x*/apps/telegnome.png
 %{_mandir}/man1/telegnome.1*
