@@ -1,24 +1,21 @@
 Summary:	TeleGNOME - GNOME application to display teletext
 Summary(pl.UTF-8):	TeleGNOME - aplikacja GNOME do wyświetlania teletekstu
 Name:		telegnome
-Version:	0.3.1
+Version:	0.3.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/telegnome/0.3/%{name}-%{version}.tar.xz
-# Source0-md5:	4bc59751ff8e83b096ba53d584ee5efb
+# Source0-md5:	e4f10837325975179f95d21dda070d9a
 URL:		http://telegnome.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.13
 BuildRequires:	cairo-devel >= 1.10
 BuildRequires:	dconf-devel
 BuildRequires:	gdk-pixbuf2-devel >= 2.26
-BuildRequires:	gettext-tools
+BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.44.0
-BuildRequires:	gnome-common
-BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk+3-devel >= 3.8
-BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig
@@ -27,6 +24,7 @@ BuildRequires:	rpmbuild(macros) >= 1.198
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala
 BuildRequires:	xz
+BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	scrollkeeper
@@ -47,7 +45,7 @@ TeleGNOME - aplikacja GNOME do wyświetlania teletekstu.
 %setup -q
 
 %build
-%{__intltoolize}
+%{__gettextize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
