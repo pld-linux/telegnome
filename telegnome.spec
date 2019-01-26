@@ -1,12 +1,12 @@
 Summary:	TeleGNOME - GNOME application to display teletext
 Summary(pl.UTF-8):	TeleGNOME - aplikacja GNOME do wyświetlania teletekstu
 Name:		telegnome
-Version:	0.3.3
+Version:	0.3.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/telegnome/0.3/%{name}-%{version}.tar.xz
-# Source0-md5:	696df619a8534678b5d60a899d3a49f5
+# Source0-md5:	55ff7367788a0308ab186cb1f3845adc
 URL:		http://telegnome.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.13
@@ -15,7 +15,7 @@ BuildRequires:	dconf-devel
 BuildRequires:	gdk-pixbuf2-devel >= 2.26
 BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	glib2-devel >= 1:2.44.0
-BuildRequires:	gtk+3-devel >= 3.8
+BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-progs
 BuildRequires:	pkgconfig
@@ -31,7 +31,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	cairo >= 1.10
 Requires:	gdk-pixbuf2 >= 2.26
 Requires:	glib2 >= 1:2.44.0
-Requires:	gtk+3 >= 3.8
+Requires:	gtk+3 >= 3.22
 Requires:	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -80,8 +80,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog* MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/telegnome
-%{_datadir}/appdata/telegnome.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.telegnome.gschema.xml
+%{_datadir}/metainfo/telegnome.appdata.xml
 %{_desktopdir}/telegnome.desktop
 %{_iconsdir}/hicolor/*x*/apps/telegnome.png
 %{_mandir}/man1/telegnome.1*
