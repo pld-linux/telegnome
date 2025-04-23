@@ -1,12 +1,12 @@
 Summary:	TeleGNOME - GNOME application to display teletext
 Summary(pl.UTF-8):	TeleGNOME - aplikacja GNOME do wyświetlania teletekstu
 Name:		telegnome
-Version:	0.3.6
+Version:	0.3.7
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	https://download.gnome.org/sources/telegnome/0.3/%{name}-%{version}.tar.xz
-# Source0-md5:	ba2b34e9d8cbc428bd47da9efd25c436
+# Source0-md5:	5a7ef484d9aaf496375665ecf1d78341
 URL:		https://telegnome.sourceforge.io/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.13
