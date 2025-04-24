@@ -26,7 +26,6 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	glib2 >= 1:2.44.0
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	scrollkeeper
 Requires:	cairo >= 1.10
 Requires:	gdk-pixbuf2 >= 2.26
 Requires:	glib2 >= 1:2.44.0
@@ -60,19 +59,17 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome --with-omf
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %glib_compile_schemas
-%scrollkeeper_update_post
 %update_icon_cache hicolor
 
 %postun
 %glib_compile_schemas
-%scrollkeeper_update_postun
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
